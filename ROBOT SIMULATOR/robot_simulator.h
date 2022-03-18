@@ -1,8 +1,16 @@
 #if !defined(ROBOT_SIMULATOR_H)
 #define ROBOT_SIMULATOR_H
-#include  <utility>
-#include  <string>
-	
+#include <utility>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <exception>
+#include <typeinfo>
+#include <iostream>
+#include <random>
+#include <cstdlib>
+#include <algorithm>
+#include <iterator>
 
 
 
@@ -23,11 +31,19 @@
         Robot(const Robot&) = delete;
         Robot& operator=(const Robot&) = delete;
         ~Robot() = default;
+    
+        void reset();
+        std::string name() const { return name_of_robot; };
+        std::string name_of_robot = "";
+        std::vector<std::string> prev_names;
+
 
         void advance();
         void turn_right();
         void turn_left();
         void execute_sequence(const std::string sequence);
+
+        std::string in_english(long long in);
 
         std::pair<int, int> get_position() const {return pos;};
         Bearing get_bearing() const {return direction;};

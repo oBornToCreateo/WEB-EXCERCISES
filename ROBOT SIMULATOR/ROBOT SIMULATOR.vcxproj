@@ -141,11 +141,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="robot_simulator.cpp" />
-    <ClCompile Include="say.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="robot_simulator.h" />
-    <ClInclude Include="say.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
