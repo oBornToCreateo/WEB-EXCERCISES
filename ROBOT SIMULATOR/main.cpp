@@ -16,33 +16,34 @@ bool validate_name(const std::string& name)
 
 int main()
 {
-	/**/
-	try {
-	Robot robot;
-	long long ch;
-
-	std::cin >> ch; std::cout << "\n";
-
-	std::cout << robot.in_english(ch) << "\n";
-
-
 	
-	std::unordered_set<std::string> names;
-	names.insert(robot.name());
-	for (int i = 0; i < 1000; ++i) {
-		robot.reset();
-		assert(names.count(robot.name()) == 0);
-		assert(validate_name(robot.name()));
+	try {
+		Robot robot;
+		long long ch;
+
+		std::cout << robot.bin_to_int("101100101101010001")<<"\n";
+		
+		
+		std::cin >> ch; std::cout << "\n";
+
+		std::cout << robot.in_english(ch) << "\n";
+
+		
+	
+		/*
+		std::unordered_set<std::string> names;
 		names.insert(robot.name());
-		std::cout << robot.name() << "\n";
-	}
+		for (int i = 0; i < 1000; ++i) {
+			robot.reset();
+			assert(names.count(robot.name()) == 0);
+			assert(validate_name(robot.name()));
+			names.insert(robot.name());
+			std::cout << robot.name() << "\n";
+		}
+		*/
 
 	}
-
-
-
-
-		catch (const std::exception& ex)
+	catch (const std::exception& ex)
 	{
 		std::cout<<ex.what();
 	}

@@ -126,19 +126,46 @@
 				answer += in_english(in / 100) + " hundred" + ((in % 100 != 0) ? " " + in_english(in % 100) : "");
 			}
 			else if (in >= 20 && in < 100) {
-				answer += tens.at(in / 10) + ((in % 10 != 0) ? "-" + in_english(in % 10) : "");
+				answer += tens.at((int)in / 10) + (((int)in % 10 != 0) ? "-" + in_english(in % 10) : "");
 			}
 			else if (in >= 10 && in < 20) {
-				answer += teens.at(in - 10);
+				answer += teens.at((int)in - 10);
 			}
 			else if (in < 10) {
-				answer += ones.at(in);
+				answer += ones.at((int)in);
 			}
 			return answer;
 
 		}
 
 	}
+
+	int Robot::bin_to_int(std::string in)
+	{
+	
+		// perform conversion
+		int counter = 0;
+		int result = 0;
+		
+		for (int i = in.size()-1 ; i >= 0; i--)
+		{
+			if (in[i] == '0' || in[i] == '1')
+			{
+				if (in[i] == '1')
+				{
+					result += 0b1 << counter;
+				}
+				counter++;
+			}
+			else
+			{
+				throw std::domain_error("wrong input");
+			}
+		}
+
+		return result;
+	}
+
 
 
 	void Robot::reset()
